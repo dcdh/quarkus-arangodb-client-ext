@@ -17,7 +17,7 @@ public final class ArangodbContainer extends GenericContainer<ArangodbContainer>
     private static final int ARANGODB_SSL_PORT = 8530;
     private final boolean useSSL;
 
-    public ArangodbContainer(final DockerImageName dockerImageName, final boolean useSSL) {
+    public ArangodbContainer(final DockerImageName dockerImageName, final boolean useSSL, final String jwt) {
         super(dockerImageName);
         dockerImageName.assertCompatibleWith(IMAGE);
         this.useSSL = useSSL;
@@ -33,6 +33,14 @@ public final class ArangodbContainer extends GenericContainer<ArangodbContainer>
             withCopyFileToContainer(
                     MountableFile.forClasspathResource("/server.pem", 0744),
                     "/var/lib/arangodb/server.pem");
+        }
+        // follow this guide about jwt https://docs.arangodb.com/3.11/components/tools/arangodb-starter/security/ token based
+        if (jwt != null && jwt.length() > 0) {
+            final String setupJwtCommand = "sed -i '/authentication = true/a jwt-secret = /var/lib/arangodb/my-secret.jwt' /tmp/arangod.conf\n";
+            withCopyToContainer(Transferable.of(setupJwtCommand, 0744), "/docker-entrypoint-initdb.d/setup-jwt.sh");
+            withCopyFileToContainer(
+                    MountableFile.forClasspathResource("/my-secret.jwt", 0744),
+                    "/var/lib/arangodb/my-secret.jwt");
         }
         waitingFor(Wait.forLogMessage(".*is ready for business. Have fun.*", 1));
     }

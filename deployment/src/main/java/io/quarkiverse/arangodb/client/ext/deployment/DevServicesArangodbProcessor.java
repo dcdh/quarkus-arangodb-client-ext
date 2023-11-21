@@ -69,8 +69,10 @@ public class DevServicesArangodbProcessor {
     private RunningDevService startArangodb() {
         final boolean useSSL = ConfigUtils.getFirstOptionalValue(List.of("quarkus.arangodb.use-ssl"), Boolean.class)
                 .orElse(Boolean.FALSE);
+        final String jwt = ConfigUtils.getFirstOptionalValue(List.of("quarkus.arangodb.jwt"), String.class)
+                .orElse(null);
         final ArangodbContainer arangodb = new ArangodbContainer(
-                DockerImageName.parse("arangodb:3.11.5"), useSSL);
+                DockerImageName.parse("arangodb:3.11.5"), useSSL, jwt);
         arangodb.start();
         return new RunningDevService("ARANGODB_CLIENT",
                 arangodb.getContainerId(),

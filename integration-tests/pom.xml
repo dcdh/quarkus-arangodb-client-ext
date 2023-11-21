@@ -15,6 +15,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>default</module>
+    <module>jwt</module>
     <module>ssl</module>
   </modules>
   <build>
