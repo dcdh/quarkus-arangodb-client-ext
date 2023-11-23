@@ -2,7 +2,9 @@
 
 include::./includes/attributes.adoc[]
 
-TIP: Describe what the extension does here.
+https://docs.arangodb.com[ArangoDB] is a scalable graph database system to drive value from connected data, faster
+
+NOTE: This extension has been developed following samples presents in the https://github.com/arangodb/arangodb-java-driver[ArangoDB Java Driver]
 
 == Installation
 
@@ -22,6 +24,6 @@ For instance, with Maven, add the following dependency to your POM file:
 [[extension-configuration-reference]]
 == Extension Configuration Reference
 
-TIP: Remove this section if you don't have Quarkus configuration properties in your extension.
+include::includes/quarkus-arangodb.adoc[]
 
 include::includes/quarkus-arangodb-client-ext.adoc[leveloffset=+1, opts=optional]

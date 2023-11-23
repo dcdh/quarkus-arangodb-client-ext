@@ -2,24 +2,16 @@
 
 [![Version](https://img.shields.io/maven-central/v/io.quarkiverse.arangodb-client-ext/quarkus-arangodb-client-ext?logo=apache-maven&style=flat-square)](https://search.maven.org/artifact/io.quarkiverse.arangodb-client-ext/quarkus-arangodb-client-ext)
 
-## Welcome to Quarkiverse!
+## Introduction
 
-Congratulations and thank you for creating a new Quarkus extension project in Quarkiverse!
+Quarkus Arangodb Client is a Quarkus extension to connect to the [ArangoDB graph database](https://arangodb.com/).
 
-Feel free to replace this content with the proper description of your new project and necessary instructions how to use and contribute to it.
-
-You can find the basic info, Quarkiverse policies and conventions in [the Quarkiverse wiki](https://github.com/quarkiverse/quarkiverse/wiki).
-
-In case you are creating a Quarkus extension project for the first time, please follow [Building My First Extension](https://quarkus.io/guides/building-my-first-extension) guide.
-
-Other useful articles related to Quarkus extension development can be found under the [Writing Extensions](https://quarkus.io/guides/#writing-extensions) guide category on the [Quarkus.io](https://quarkus.io) website.
-
-Thanks again, good luck and have fun!
+It enables the use of the [ArangoDB Java Driver](https://github.com/arangodb/arangodb-java-driver) in both JVM mode and native executables. It provides configuration properties to configure all relevant aspects of the driver.
 
 ## Documentation
 
-The documentation for this extension should be maintained as part of this repository and it is stored in the `docs/` directory.
+The documentation for this extension can be found [here](https://quarkiverse.github.io/quarkiverse-docs/quarkus-arangodb/dev/index.html) while the documentation for the Arangodb Java Driver itself is in the official [manual](https://docs.arangodb.com/3.11/develop/drivers/java/).
 
-The layout should follow the [Antora's Standard File and Directory Set](https://docs.antora.org/antora/2.3/standard-directories/).
+## Contributors ✨
 
-Once the docs are ready to be published, please open a PR including this repository in the [Quarkiverse Docs Antora playbook](https://github.com/quarkiverse/quarkiverse-docs/blob/main/antora-playbook.yml#L7). See an example [here](https://github.com/quarkiverse/quarkiverse-docs/pull/1).
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
